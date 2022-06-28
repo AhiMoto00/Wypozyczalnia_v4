@@ -57,5 +57,26 @@ namespace Wypozyczalnia_v4.Views
 
             DataGridZestaw.DataContext = dtZestaw;
         }
+
+
+        private void ButtonUsunZestaw_Click(object sender, RoutedEventArgs e)
+        {
+
+            using (WypozyczalniaContext db = new WypozyczalniaContext(connectionString))
+            {
+                db.Remove(new ZestawC { Id = BoxUsun.Text });
+                db.SaveChanges();
+
+            }
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand cmdZestaw = new SqlCommand("Select * from Zestaw", connection);
+            connection.Open();
+
+            DataTable dtZestaw = new DataTable();
+            dtZestaw.Load(cmdZestaw.ExecuteReader());
+            connection.Close();
+
+            DataGridZestaw.DataContext = dtZestaw;
+        }
     }
 }

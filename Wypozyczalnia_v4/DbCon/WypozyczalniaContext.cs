@@ -106,7 +106,7 @@ namespace Wypozyczalnia_v4.DbCon
 
     public class ZestawC
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string NartyID { get; set; }
         public string ButyID { get; set; }
         public string KaskiID { get; set; }

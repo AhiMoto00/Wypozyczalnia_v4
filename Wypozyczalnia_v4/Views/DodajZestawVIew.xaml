@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wypozyczalnia_v4.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="825" d:DesignWidth="1350"
              Background="#0088cc"
              >
     <Grid>
@@ -15,22 +15,31 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1"
                     Margin="20">
-            <TextBlock Margin="3">Podaj IDNart:</TextBlock>
-            <TextBox x:Name="BoxNarty" Margin="5"/>
-            <TextBlock Margin="3">Podaj IDButów:</TextBlock>
-            <TextBox x:Name="BoxButy" Margin="5"/>
-            <TextBlock Margin="3">Podaj IDKasku:</TextBlock>
-            <TextBox x:Name="BoxKask" Margin="5"/>
-            <TextBlock Margin="3">Podaj IDKijka:</TextBlock>
-            <TextBox x:Name="BoxKij" Margin="5"/>
-            <TextBlock Margin="3">Podaj Cene?:</TextBlock>
-            <TextBox x:Name="BoxCena" Margin="5"/>
+            <TextBlock Margin="3"><Run Text="Podaj IDNart:"/></TextBlock>
+            <TextBox x:Name="BoxNarty" Margin="3"/>
+            <TextBlock Margin="3"><Run Text="Podaj IDButów:"/></TextBlock>
+            <TextBox x:Name="BoxButy" Margin="3"/>
+            <TextBlock Margin="3"><Run Text="Podaj IDKasku:"/></TextBlock>
+            <TextBox x:Name="BoxKask" Margin="3"/>
+            <TextBlock Margin="3"><Run Text="Podaj IDKijka:"/></TextBlock>
+            <TextBox x:Name="BoxKij" Margin="3"/>
+            <TextBlock Margin="3"><Run Text="Podaj Cene?:"/></TextBlock>
+            <TextBox x:Name="BoxCena" Margin="3"/>
             <Button x:Name="ButtonDodajKlienta"
                     Content="Dodaj Nowy Zestaw"
-                    Height="75"
+                    Height="70"
                     FontSize="25"                            
                     Style="{StaticResource MenuButtonTheme}" 
                     Click="ButtonDodajZestaw_Click"/>
+
+            <TextBlock Margin="3"><Run Text="Podaj ID Zestawu:"/></TextBlock>
+            <TextBox x:Name="BoxUsun" Margin="3"/>
+            <Button x:Name="ButtonUsunZestaw"
+                Content="Usun Zestaw"
+                Height="70"
+                FontSize="25"                            
+                Style="{StaticResource MenuButtonTheme}" 
+                Click="ButtonUsunZestaw_Click"/>
 
         </StackPanel>
         <DataGrid Name="DataGridZestaw" 
@@ -79,7 +88,7 @@
             </Grid.RowDefinitions>
         </Grid>
 
-       
+
 
     </Grid>
 </UserControl>
