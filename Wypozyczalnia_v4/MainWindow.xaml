@@ -1,0 +1,75 @@
+﻿<Window x:Class="Wypozyczalnia_v4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wypozyczalnia_v4"
+        xmlns:viewmodels="clr-namespace:Wypozyczalnia_v4.ViewModels"
+        xmlns:views="clr-namespace:Wypozyczalnia_v4.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1600"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        >
+    <Window.Resources>
+        <DataTemplate x:Name="StronaGłównaViewTemple" DataType="{x:Type viewmodels:StronaGłównaViewModel}">
+            <views:StronaGłównaView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="DodajKlientaViewTemple" DataType="{x:Type viewmodels:DodajKlientaViewModel}">
+            <views:DodajKlientaVIew DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="DodajZestawViewTemple" DataType="{x:Type viewmodels:DodajZestawViewModel}">
+            <views:DodajZestawVIew DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Border Background="#cceeff"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="LOGO"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       FontSize="30"
+                       Margin="50,0,0,0"/>
+            <Button Content="Exit"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       FontSize="30"
+                       Margin="0,0,20,0"
+                       Style="{StaticResource MenuButtonTheme}" Click="ExitButton"/>
+            
+            <StackPanel Grid.Row="1">
+                <Button Content="Strona Główna"
+                        Height="75"
+                        FontSize="30"
+                        Style="{StaticResource MenuButtonTheme}" Click="StronaGłównaView_Clicked"/>
+                <Button Content="Dodaj Klienta"
+                        Height="75"
+                        FontSize="30"
+                        Style="{StaticResource MenuButtonTheme}" Click="DodajKlientaView_Clicked"/>
+                <Button Content="Dodaj Zestaw"
+                        Height="75"
+                        FontSize="30"
+                        Style="{StaticResource MenuButtonTheme}" Click="DodajZestawView_Clicked"/>
+                <Button Content="Zwrot Zestawu"
+                        Height="75"
+                        FontSize="30"
+                        Style="{StaticResource MenuButtonTheme}"/>
+            </StackPanel>
+
+            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding}"/>
+        </Grid>
+    </Border>
+</Window>
